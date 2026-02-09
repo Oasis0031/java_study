@@ -1,0 +1,7 @@
+package consoleTasks;
+
+public class ConsoleTask01 {
+	public static void main(String[] args) {
+		System.out.print("점심메뉴: \n 1. 김치찌개 \n 2. 카츠동 \n 3. 카레우동");
+	}
+}

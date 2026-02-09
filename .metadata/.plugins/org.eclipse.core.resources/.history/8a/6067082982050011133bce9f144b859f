@@ -1,0 +1,38 @@
+package formatTest;
+
+public class FormatTask02 {
+   public static void main(String[] args) {
+//      %자릿수d
+//      %5d
+      
+//      국어점수, 영어점수, 수학점수를 받아서 서식에 맞게 출력
+//      이름: 이규학
+//      수학:    20점
+//      국어:    40점
+//      영어:    15점
+//      총점:    75점
+	   String name = "아무개";
+	   
+	   int kor = 0;
+	   int eng = 0;
+	   int math = 0;
+	   
+	   kor = 40;
+	   eng = 15;
+	   math = 20;
+	   int total = kor + eng + math;
+	   
+	   String result1 = "%s, 이름: \n";
+	   String result2 = "%d, 수학: \n";
+	   String result3 = "%d, 국어: \n";
+	   String result4 = "%d, 영어: \n";
+	   String result5 = "%d, 총점: \n";
+	   
+	   System.out.printf(name, result1);
+	   System.out.printf(result2, math, math);
+	   System.out.printf(result3, kor, kor);
+	   System.out.printf(result4, eng);
+	   System.out.printf(result5, total, total, total);
+	   
+   }
+}

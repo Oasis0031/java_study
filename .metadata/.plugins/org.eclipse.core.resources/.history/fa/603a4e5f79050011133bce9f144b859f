@@ -1,0 +1,39 @@
+package variableTest;
+
+public class VariableTask02 {
+	public static void main(String[] args) {
+//	      5, 7845.15, false, B, 85.10F, 자바, S, 98590, D, true, 공백문자
+//	      저장공간 2개만 사용해서 모든 값을 출력하기
+//	      datas, numbers
+
+		   int five = 0;
+		   double sevenEight = 0.0;
+		   boolean fake = false;
+		   char b = ' ';
+		   float fEight = 0.0F;
+		   String java = " ";
+		   char s = ' ';
+		   int num = 0;
+		   char d = ' ';
+		   boolean real = false;
+		   String blank = " ";
+		   
+		   five = 5;
+		   sevenEight = 7845.15;
+		   fake = false;
+		   b = 'B';
+		   fEight = 85.10F;
+		   java = "자바";
+		   s = 'S';
+		   num = 98590;
+		   d = 'D';
+		   real = true;
+		   blank = " ";
+		   
+		   String datas =  b + java  + d + s + blank + fake + real;
+		   double numbers = five + sevenEight+ fEight+ num;
+		   
+		   System.out.println(datas);
+		   System.out.println(numbers);
+	}
+}

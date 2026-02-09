@@ -1,0 +1,11 @@
+package castingTask;
+
+public class CastingTask01 {
+	public static void main(String[] args) {
+		float six = 6.37f, threePoint = 3.99f;
+		int three = 3;
+		int result = ((int)six + (int)threePoint) / three;
+		
+		System.out.println(result);
+	}
+}
