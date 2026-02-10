@@ -10,12 +10,12 @@ public class CastingTask02 {
 		num1 = "8.43";
 		num2 = 2.59;
 		
-		int stringResult = Integer.parseInt("%s"); 
-		int doubleResult = Integer.parseInt("%f");
+		int stringResult = (int)Double.parseDouble(num1); 
+		int doubleResult = (int)num2;
 		
 		int sumResult =  stringResult + doubleResult;
 		
-		System.out.printf(stringResult, num1); 
+		System.out.println(sumResult); 
 		
 	}
 }
