@@ -22,7 +22,17 @@ public class WhileTask02 {
 	   
 	   Scanner scan = new Scanner(System.in);
 	   
-	   
+	   while(true) {
+		   System.out.println("정수를 입력하세요.");
+		   input = scan.nextInt();
+		   sum += input;
+		   System.out.println(sum);
+		   System.out.println(input);
+		   if(sum == target) {
+			   System.out.println("에에 성공");
+			   break;
+		   }
+	   }
 	   
 	   
    }
