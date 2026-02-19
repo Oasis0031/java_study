@@ -3,5 +3,7 @@
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="method.methodTest"/>
+    <fullyQualifiedTypeName name="classTask.Sports"/>
+    <fullyQualifiedTypeName name="classTask.Student"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>
