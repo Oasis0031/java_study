@@ -6,4 +6,6 @@
     <fullyQualifiedTypeName name="classTask.Sports"/>
     <fullyQualifiedTypeName name="classTask.Student"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="classTest.Person"/>
+    <fullyQualifiedTypeName name="InheritanceTest.Car"/>
 </qualifiedTypeNameHistroy>
