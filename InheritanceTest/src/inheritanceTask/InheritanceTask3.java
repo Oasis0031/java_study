@@ -10,7 +10,9 @@ class Phone {
 	private String brand;
 	private int price;
 
-	public Phone() {;}
+	public Phone() {
+		;
+	}
 
 	public Phone(String model, String brand, int price) {
 		super();
@@ -42,34 +44,36 @@ class Phone {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	
 }
 
-class Phone2G extends Phone{
-	public Phone2G() {;}
-	
+class Phone2G extends Phone {
+	public Phone2G() {
+		;
+	}
+
 	public Phone2G(String model, String brand, int price) {
 		super(model, brand, price);
 	}
 
-	public void internet(){
+	public void internet() {
 		System.out.println("Nate");
 	}
-	
 }
 
-class Phone3G extends Phone2G{
-	public Phone3G() {;}
+class Phone3G extends Phone2G {
+	public Phone3G() {
+		;
+	}
 
 	public Phone3G(String model, String brand, int price) {
 		super(model, brand, price);
 	}
-	
+
 	@Override
-	public void internet(){
+	public void internet() {
 		System.out.println("카카오톡 실행");
 	}
-	
+
 	public void videoPhone() {
 		System.out.println("요금 개많이 나옴");
 	}
@@ -91,21 +95,18 @@ public class InheritanceTask3 {
 		phone2G.setBrand("삼성");
 		phone2G.setModel("애니콜");
 		phone2G.setPrice(500000);
-		
+
 		System.out.println(phone2G.getBrand());
 		phone2G.internet();
-		
-		
+
 		Phone3G phone3G = new Phone3G();
 		phone3G.setBrand("애플");
 		phone3G.setModel("아이폰");
 		phone3G.setPrice(700000);
 
-		
 		System.out.println(phone3G.getModel());
 		phone3G.internet();
 		phone3G.videoPhone();
 	}
-	
-	
+
 }
