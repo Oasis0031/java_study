@@ -1,6 +1,5 @@
 package classTask4;
 
-
 //   - 캐스팅 심화
 //   Market
 //   - 필드: 이름
@@ -12,7 +11,6 @@ package classTask4;
 //         1. 비회원 할인율 5% 적용
 //         2. 멤버 할인율 30% 적용
 //      - 등록된 상품의 재고보다 작으면 판매할 수 없다.
-
 //   2. 상품 등록
 //      - 상품 등록은 최대 5개까지만 할 수 있다.
 //      (즉, 6개를 전달해도 앞에 5개 상품만 등록된다)
@@ -40,5 +38,51 @@ package classTask4;
 //   공통 필드로 추상화 작업 필요**
 
 public class ClassTask4 {
-
+   public static void main(String[] args) {
+      Market market = new Market("당근마켓");
+      Product product1 = new Product("당근", 10000, 100);
+      Product product2 = new Product("당근", 10000, 100);
+      
+      MarketMember member = new MarketMember("김회원", "01012341234", 1000000);
+      MarketNonMember noMember = new MarketNonMember("노회원", "01034567890", 1000000);
+      
+      market.registerProduct(product1);
+      market.showProducts();
+      
+//      상품이 판매되면
+      market.sell("당근", 2, member);
+      market.sell("당근", 2, noMember);
+      
+      System.out.println("===============");
+      member.printInfo();
+      System.out.println("===============");
+      noMember.printInfo();
+   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

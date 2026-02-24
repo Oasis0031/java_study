@@ -1,14 +1,9 @@
 package classTask4;
 
-public class MarketMember extends Shopper {
-
-	public MarketMember() {;}
-	
-	@Override
-	public void discount() {
-		super.discount();
-		this.setCoupon(1);
-		this.setPoint(0.1);
-		this.setDiscount(0.3);
-	}
+public class MarketMember extends MarketCustomer{
+   public MarketMember() {;}
+   public MarketMember(String customerName, String customerPhone, int customerMoney) {
+      super(customerName, customerPhone, customerMoney);
+   }
+   
 }
