@@ -13,7 +13,7 @@ public class PersonActionAdapter extends Person implements PersonAction {
    @Override
    public void goToSchool() {;}
 
-   @Override
+   @Override 
    public void goToCompany() {;}
 
 }

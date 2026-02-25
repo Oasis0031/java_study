@@ -10,4 +10,6 @@
     <fullyQualifiedTypeName name="InheritanceTest.Car"/>
     <fullyQualifiedTypeName name="classTask2.Oak"/>
     <fullyQualifiedTypeName name="classTask3.Koala"/>
+    <fullyQualifiedTypeName name="anonymousTest.Study"/>
+    <fullyQualifiedTypeName name="java.lang.FunctionalInterface"/>
 </qualifiedTypeNameHistroy>
