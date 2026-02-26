@@ -1,77 +1,60 @@
 package lambdaTask4;
 
 public class LambdaTask4 {
-	public static void main(String[] args) {
-//      1. 정수를 입력하면 정수에 해당하는 구구단을 출력해주는 람다
-//      입력 예시)
-//      3
-//      출력 예시)
-//      3 x 1 = 3
-//      ...
-//      3 x 9 = 27 
-		Multipication multipication = (num) -> {
+    public static void main(String[] args) {
+        
+        // 1. 구구단 출력 람다
+        Multipication multipication = (num) -> {
+            for (int i = 1; i <= 9; i++) { // 구구단은 보통 1부터 시작하므로 수정했습니다.
+                System.out.println(num + " x " + i + " = " + (num * i));
+            }
+            return num;
+        };
+        
+        multipication.multi(3);
+        System.out.println("-------------------------");
 
-			for (int i = num; i <= 9; i++) {
-				System.out.println(num + " x " + i + " = " + (num*i));
-			}
-			return num;
-		};
-		
-		multipication.multi(3);
+        // 2. 사칙연산 계산기 람다
+        Calculator cal = (num1, num2, mark) -> {
+            int result = 0;
+            switch(mark) {
+                case "+": result = num1 + num2; break;
+                case "-": result = num1 - num2; break; 
+                case "*": result = num1 * num2; break;
+                case "/": result = num1 / num2; break;
+                default : result = -1;
+            }
+            return result;
+        }; // 람다 식 종료
+        
+        System.out.println(cal.calculator(5, 3, "-"));
+        System.out.println("-------------------------");
 
-//      2. 두 개의 정수와 연산자를 전달하면 식을 완성시켜주는 람다
-//      입력 예시1)
-//      10, 20, "+"
-//      
-//      출력 예시1)
-//      30
+        // 3. 내림차순 정렬 람다 (선택 정렬)
+        Descending des = (arr) -> {
+            for(int i = 0; i < arr.length - 1; i++) {
+                int maxIndex = i;
+                for(int j = i + 1; j < arr.length; j++) {
+                    if(arr[j] > arr[maxIndex]) {
+                        maxIndex = j;
+                    }
+                }
+                // swap
+                int temp = arr[i];
+                arr[i] = arr[maxIndex];
+                arr[maxIndex] = temp;
+            }
+            return arr;
+        };
 
-//      입력 예시2)
-//      10, 20, "-"
-//      
-//      출력 예시2)
-//      -10
-		
-		Calculator cal = (num1, num2, mark) -> {
-			int plusResult = 0;
-			int minusResult = 0;
-			int result = 0;
-			
-			if (mark == "+") {
-				plusResult = num1 + num2;
-				
-			} else if(mark == "-") {
-				minusResult = num1 - num2;
-			}
-			result = plusResult + minusResult;
-			return result;
-		};
-		
-		System.out.println(cal.calculator(5, 3, "-"));
-		
-		
-
-//      3. 배열에 10개의 무작위 정수를 전달하면,
-//      큰수부터(내림차순) 정렬하여 배열에 담아 리턴(반환)해주는 메서드
-//      입력 예시)
-//      {10, 3, 7, 8, 0, 9}
-
-//      출력 예시)
-//      {10, 9, 8, 7, 3, 0}
-		
-		Descending descending = (nums) -> {
-			
-				for (int i = 0; i < nums.length; i++) {
-					for (int j = 0; j < nums.length; j++) {
-						if (nums[i] < nums[j]) {
-							int temp = nums[i];
-							nums[i] = nums[j];
-							nums[j] = nums[i];
-						}
-					}
-				}
-		};
-		
-
-	}
-}
+        int[] numbers = {10, 3, 7, 8, 0, 9};
+        
+        // 인터페이스의 메서드명이 des.sort()라고 가정하거나 des.descending() 등으로 호출
+        numbers = des.descending(numbers); 
+        
+        for(int number : numbers) {
+            System.out.print(number + " ");
+        }
+        
+    } // main 메서드 종료
+} // 클래스 종료
