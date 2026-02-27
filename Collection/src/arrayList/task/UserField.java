@@ -6,6 +6,7 @@ public class UserField {
    
    public ArrayList<User> users = DBConnecter.users;
    public final int KEY = 300;
+   public static String session; 
    
 //   1. 회원가입
 //   - name, password, phone  
@@ -55,13 +56,45 @@ public class UserField {
          return null;
       }
       
+      session = userInDB.getId();
       return userInDB;
    }
    
 //   3. 로그아웃
+   public void logout() {
+      session = null;
+   }
+   
 //   4. 회원탈퇴
+//   10분
+   public void withdraw() {
+      User removeUser = checkId(session);
+      
+      System.out.println("회원탈퇴 완료");
+      users.remove(removeUser);
+   }
+   
+   
 //   5. 비밀번호 변경(마이페이지)
-//   6. 비밀번호 변경(비밀번호 변경 30일)
+//   13분
+   public void update(User user) {
+      User userInDb = checkId(user.getId());
+      if(userInDb != null) {
+         userInDb.setPassword(encode(user.getPassword()));
+      }
+   }
+   
+//   6. 비밀번호 변경(비밀번호 변경 30일 만료되어 바꿈)
+   public boolean update(String password, String newPassword) {
+      User foundUser = checkId(session);
+      if(foundUser.getPassword().equals(password)) {
+         foundUser.setPassword(encode(newPassword));
+         return true;
+      }
+      return false;
+   }
+   
+
 //   7. 인증번호 전송
 //   8. 인증번호 확인
    public static void main(String[] args) {
@@ -74,8 +107,12 @@ public class UserField {
 //      System.out.println(uf.users);
       
       User currentUser = uf.login(new User("hong123", "홍길동", "1234", "010-1234-1234"));
-      System.out.println(currentUser);
       
+//      uf.withdraw();
+      System.out.println(uf.users);
+      
+      uf.update(new User("hong123", "홍길동", "12345678", "010-4567-4567"));
+      System.out.println(uf.users);
    }
 }
 

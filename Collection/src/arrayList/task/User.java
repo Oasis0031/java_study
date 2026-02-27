@@ -4,9 +4,6 @@ import java.util.Objects;
 
 public class User {
 
-	
-	
-	
 	private String id;
 	private String name;
 	private String password;
@@ -53,6 +50,8 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
