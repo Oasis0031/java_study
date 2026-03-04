@@ -26,7 +26,7 @@ public class StreamTest3 {
 //		.boxed()
 //		.mapToObj()
 		
-//		Stream<Integer> -> IntStream
+//		Stream<Integer> -> IntStream 
 		int totalAge = users.stream()
 			.mapToInt(user -> user.getAge())
 			.sum();
