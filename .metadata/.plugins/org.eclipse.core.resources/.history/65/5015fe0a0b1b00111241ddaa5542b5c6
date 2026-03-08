@@ -1,0 +1,52 @@
+package chatPractice;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Server {
+	public static void main(String[] args) {
+		String clientMessage = null, serverMessage = null;
+		System.out.println("서버 시작. 클라이언트를 기다리는 중");
+		
+		try(
+				//서버 소켓 설정
+			ServerSocket serverSocket = new ServerSocket(1100);
+				//소켓 다운캐스팅
+			Socket socket = serverSocket.accept();
+				//받아온 메세지를 읽기 위해 버퍼리더 인스턴스 생성하는데, 그 인스턴스는 인풋 스트림 리더
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+				//메세지를 보내기 위해 버퍼드 라이터 인스턴스 생성, 그 인스턴스는 아웃풋 스트림 라이터
+			BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));	
+				//서버로 메세지 보내기 위해 스캐너 사용
+			Scanner sc = new Scanner(System.in);
+				){
+				// 클라이언트가 접속 성공시 메세지 출력
+			System.out.println("클라이언트가 연결되었습니다.");
+		
+			while(true) {
+				System.out.println("클라이언트로 메세지 보내기 >>");
+				// 서버로 보내는 메세지는 스캐너로 받아 옴.
+				serverMessage = sc.nextLine();
+				// 서버메세지는 스트링으로 받아오고, 줄바꿈
+				bufferedWriter.write(serverMessage + "\n");
+				// 서버로 메세지 전송
+				bufferedWriter.flush();
+				System.out.println("[서버]: " + serverMessage);
+				
+				//버퍼드 리더의 리드 메서드를 사용하여 클라이언트 메세지 정의
+				clientMessage = bufferedReader.readLine();
+				//메세지가 들어오면 클라이언트 메세지 출려
+				System.out.println("[클라이언트]: " + clientMessage);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+}
